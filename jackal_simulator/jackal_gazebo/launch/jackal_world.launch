@@ -5,7 +5,7 @@
   <!-- <arg name="world_name" default="$(find jackal_gazebo)/worlds/corridor.world" /> -->
   <!-- <arg name="world_name" default="$(find jackal_gazebo)/worlds/static_obstacles.world" /> -->
   <arg name="world_name" default="$(find jackal_gazebo)/worlds/decomp.world" />
-
+  <arg name="paused" default="false"/>
   <!-- Short-term hack to support the original front_laser:=true argument for spawning
        the simulator. This will be removed in favour of using the config:=x arg instead. -->
   <arg name="front_laser" default="false" />
@@ -27,6 +27,7 @@
     <arg name="use_sim_time" value="$(arg use_sim_time)" />
     <arg name="headless" value="$(arg headless)" />
     <arg name="world_name" value="$(arg world_name)" />
+    <arg name="paused" value="$(arg paused)"/>
   </include>
 
   <!-- Spawn Jackal -->

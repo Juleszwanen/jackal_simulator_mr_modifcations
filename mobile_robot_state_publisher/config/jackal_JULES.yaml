@@ -1,0 +1,11 @@
+## Driver Parameters
+
+#publisher rate
+rate: 100
+#robot base frame
+base_frame: base_link
+#map frame
+root_frame: map
+# JULES: by removing the leading slash of robot_state it automicatically rempas the topic into the namespace of the specific group
+robot_state_topic: robot_state
+vel_state_topic: /gazebo/link_states

@@ -1,0 +1,20 @@
+<launch>
+    <arg name="config" default="$(find mobile_robot_state_publisher)"/>
+    <arg name="tf_prefix"       default=""/>
+    <arg name="x"     default="0"/>
+    <arg name="y"     default="0"/>
+    <arg name="z"     default="0"/>
+    <arg name="yaw"   default="0"/>
+    <arg name="var_jackal_name"  default=""/>
+    <!--Publish the mobile robot pose -->
+    <node name="mobile_robot_state_publisher_mr" pkg="mobile_robot_state_publisher" type="mobile_robot_state_publisher_node_mr" required="true" respawn="false" output="screen">
+            <rosparam command="load" file="$(arg config)/config/jackal_JULES.yaml" />
+            <param name="robot_namespace" value="$(arg var_jackal_name)" />
+            <param name="tf_prefix"       value="$(arg tf_prefix)"/>
+    </node>
+
+    <!-- This is done because we disable the ukf in jackal control to make the positon on gazebo match ros 
+    JUlES: I think this is not possible with a multi robot scenario, we just say that 0, 0, 0 is the origin of the map I guess, from that point every other robots location is defined-->
+    <!-- <node pkg="tf" type="static_transform_publisher" name="static_map" args="0 0 0 0 0 0 $(arg tf_prefix)/odom map 100" output="log"/> -->
+
+</launch>
